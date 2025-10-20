@@ -13,7 +13,7 @@ export const LoginComponent = () => {
         const values = await form.validateFields();
         await handleLogin({
             email: values.email,
-            password: values.password
+            senha: values.senha
         });
     };
 
@@ -80,7 +80,7 @@ export const LoginComponent = () => {
 
                     <Form.Item
                         label="Senha"
-                        name="password"
+                        name="senha"
                         rules={[
                             {
                                 required: true,

@@ -20,7 +20,7 @@ const rootReducer = combineReducers({
 
 // ✅ Configuração de persistência
 const persistConfig = {
-    key: 'kovr_sinistro',
+    key: 'gestao_pessoas',
     version: 1,
     storage,
    

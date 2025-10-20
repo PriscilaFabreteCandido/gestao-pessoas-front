@@ -6,17 +6,22 @@ import store from "./stores/store";
 import EventSession from "./components/ui/event-session/EventSession";
 import { BrowserRouter } from "react-router-dom";
 import ThemeWrapper from "./styles/ThemeWrapper";
+import { persistStore } from 'redux-persist'
+import { PersistGate } from "redux-persist/integration/react";
+
+let persistor = persistStore(store)
 
 const App = () => {
   return (
     <ThemeWrapper >
 
       <Provider store={store}>
-        <BrowserRouter>
-          <EventSession />
-          <AppRoutes />
-        </BrowserRouter>
-
+        <PersistGate loading={null} persistor={persistor}>
+          <BrowserRouter>
+            <EventSession />
+            <AppRoutes />
+          </BrowserRouter>
+        </PersistGate>
       </Provider>
 
     </ThemeWrapper>

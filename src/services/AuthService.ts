@@ -17,11 +17,11 @@ export default class AuthService {
     }
 
     static async logar(parms: LoginRequest): Promise<LoginResponse> {
-        return this.getHttpClient().post<LoginResponse>(`/auth/login`, parms);
+        return this.getHttpClient().post<LoginResponse>(`/login`, parms);
     }
 
     static async useInfo(): Promise<UserInfoResponse> {
-        return this.getHttpClient().get<UserInfoResponse>(`/auth/user-info`);
+        return this.getHttpClient().get<UserInfoResponse>(`/user-info`);
     }
 
     

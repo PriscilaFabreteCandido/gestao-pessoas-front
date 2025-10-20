@@ -1,5 +1,7 @@
 import HttpClient from "../client/HttpClient";
-import type { PessoaResponse } from "../interfaces/Responses/PessoaReponse";
+import type { CriarPessoaRequest } from "../interfaces/Requests/CriarPessoaRequest";
+import type { EditarPessoaRequest } from "../interfaces/Requests/EditarPessoaRequest";
+import type { PessoaResponse } from "../interfaces/Responses/PessoaResponse";
 
 export class PessoaService {
   private static httpClient: HttpClient;
@@ -16,7 +18,7 @@ export class PessoaService {
     return this.getHttpClient().get<PessoaResponse[]>(`/obter-todos`);
   }
 
-  static async obterPorId(id: number): Promise<PessoaResponse> {
+  static async obterPorId(id: string): Promise<PessoaResponse> {
     return this.getHttpClient().get<PessoaResponse>(`/obter-por-id`, {id});
   }
 
@@ -24,15 +26,15 @@ export class PessoaService {
     return this.getHttpClient().get<PessoaResponse>(`/cpf/${cpf}`);
   }
 
-  static async criar(pessoa: Omit<PessoaResponse, 'id'>): Promise<PessoaResponse> {
-    return this.getHttpClient().post<PessoaResponse>(`?`, pessoa);
+  static async criar(pessoa: CriarPessoaRequest): Promise<PessoaResponse> {
+    return this.getHttpClient().post<PessoaResponse>(`/criar`, pessoa);
   }
 
-  static async atualizar(id: number, pessoa: Partial<PessoaResponse>,): Promise<PessoaResponse> {
-    return this.getHttpClient().put<PessoaResponse>(`/atualizar`, pessoa);
+  static async atualizar(id: string, pessoa:EditarPessoaRequest,): Promise<PessoaResponse> {
+    return this.getHttpClient().put<PessoaResponse>(`/atualizar/${id}`, pessoa);
   }
 
   static async excluir(id: number,): Promise<void> {
-    return this.getHttpClient().delete(`/`);
+    return this.getHttpClient().delete(`/excluir/${id}`);
   }
 }

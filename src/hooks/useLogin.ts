@@ -7,7 +7,7 @@ import { login } from "../stores/slices/authSlice";
 
 interface LoginCredentials {
     email: string;
-    password: string;
+    senha: string;
 }
 
 export function useLogin() {
@@ -22,8 +22,8 @@ export function useLogin() {
 
         try {
             const loginRequest: LoginRequest = {
-                username: values.email,
-                password: values.password
+                email: values.email,
+                senha: values.senha
             };
 
             const loginResponse = await AuthService.logar(loginRequest);
@@ -37,7 +37,7 @@ export function useLogin() {
             }));
 
             
-            navigate("/private/home");
+            navigate("/");
         } catch (error:any) {
             console.error("Erro ao fazer login:", error);
             setError(error?.response?.data?.message ?? "Credenciais inválidas ou erro na conexão");
