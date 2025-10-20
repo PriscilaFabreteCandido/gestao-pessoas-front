@@ -47,6 +47,20 @@ const PessoasPage: React.FC = () => {
             sorter: (a, b) => new Date(a.dataNascimento).getTime() - new Date(b.dataNascimento).getTime(),
         },
         {
+            title: "Data de Cadastro",
+            dataIndex: "dataCriacao",
+            key: "dataCriacao",
+            render: (data:any) =>
+                data ? new Date(data).toLocaleString("pt-BR") : "-",
+        },
+        {
+            title: "Última Atualização",
+            dataIndex: "dataAtualizacao",
+            key: "dataAtualizacao",
+            render: (data:any) =>
+                data ? new Date(data).toLocaleString("pt-BR") : "-",
+        },
+        {
             title: "Ações",
             key: "actions",
             render: (_, record) => (
