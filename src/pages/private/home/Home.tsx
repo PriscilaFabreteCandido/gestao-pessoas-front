@@ -10,7 +10,7 @@ export const HomePage = () => {
   };
 
   const handleCreateUser = () => {
-    navigate('/pessoas/cadastrar');
+    navigate('/pessoas/adicionar');
   };
 
   return (

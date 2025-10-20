@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Form, Input, DatePicker, Select, Row, Col, Button, Spin } from "antd";
 import dayjs from "dayjs";
 import { useNavigate } from "react-router-dom";
 import { usePessoaForm } from "../../hooks/usePessoaForm";
 import { isValidCPF } from "../../utils/isValidCPF";
+import { formatCPF } from "../../utils/formatCPF";
 
 const { Option } = Select;
 const cpfRegex = /^\d{3}\.\d{3}\.\d{3}\-\d{2}$/;
@@ -18,14 +19,10 @@ const PessoaForm: React.FC<PessoaFormProps> = ({ pessoaId, onSuccess }) => {
     const navigate = useNavigate();
     const { initialValues, handleSubmit, isEditMode, loading } = usePessoaForm({ pessoaId, onSuccess });
 
-    const formatCPF = (value: string) => {
-        const numbers = value.replace(/\D/g, '');
 
-        if (numbers.length <= 3) return numbers;
-        if (numbers.length <= 6) return `${numbers.slice(0, 3)}.${numbers.slice(3)}`;
-        if (numbers.length <= 9) return `${numbers.slice(0, 3)}.${numbers.slice(3, 6)}.${numbers.slice(6)}`;
-        return `${numbers.slice(0, 3)}.${numbers.slice(3, 6)}.${numbers.slice(6, 9)}-${numbers.slice(9, 11)}`;
-    };
+    useEffect(() => {
+        form.setFieldsValue({ ...initialValues, cpf: initialValues.cpfFormatado })
+    }, [initialValues])
 
     return (
         <Spin spinning={loading}>
@@ -124,6 +121,7 @@ const PessoaForm: React.FC<PessoaFormProps> = ({ pessoaId, onSuccess }) => {
                             <Input
                                 placeholder="000.000.000-00"
                                 maxLength={14}
+                                onChange={(e) => formatCPF(e.target.value)}
                             />
                         </Form.Item>
                     </Col>

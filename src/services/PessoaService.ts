@@ -19,7 +19,7 @@ export class PessoaService {
   }
 
   static async obterPorId(id: string): Promise<PessoaResponse> {
-    return this.getHttpClient().get<PessoaResponse>(`/obter-por-id`, {id});
+    return this.getHttpClient().get<PessoaResponse>(`/obter-por-id/${id}` );
   }
 
   static async obterPorCpf(cpf: string,): Promise<PessoaResponse> {
@@ -34,7 +34,7 @@ export class PessoaService {
     return this.getHttpClient().put<PessoaResponse>(`/atualizar/${id}`, pessoa);
   }
 
-  static async excluir(id: number,): Promise<void> {
+  static async excluir(id: string,): Promise<void> {
     return this.getHttpClient().delete(`/excluir/${id}`);
   }
 }

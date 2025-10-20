@@ -3,7 +3,6 @@ import { Card, Typography } from "antd";
 import { useParams } from "react-router-dom";
 import PessoaForm from "../../../../components/pessoa/PessoaForm";
 
-
 const { Title } = Typography;
 
 const EditarPessoaPage: React.FC = () => {
@@ -13,9 +12,9 @@ const EditarPessoaPage: React.FC = () => {
 
   return (
     <div style={{ maxWidth: 900, margin: "0 auto", padding: 24 }}>
-      <Card >
+      <Card>
         <Title level={3} style={{ marginBottom: 24 }}>
-          Editar Pessoa
+          Editar Pessoa 
         </Title>
         <PessoaForm pessoaId={id} />
       </Card>

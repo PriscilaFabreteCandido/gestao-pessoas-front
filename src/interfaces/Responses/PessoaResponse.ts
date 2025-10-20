@@ -9,4 +9,5 @@ export interface PessoaResponse {
   naturalidade: string;
   nacionalidade: string;
   cpf: string;
+  cpfFormatado:string;
 }

@@ -24,6 +24,7 @@ export const usePessoaForm = ({ pessoaId, onSuccess }: UsePessoaFormProps) => {
 
     try {
       setLoading(true);
+      console.log('pessoaId', pessoaId)
       const pessoa: PessoaResponse = await PessoaService.obterPorId(pessoaId);
       setInitialValues({
         ...pessoa,
@@ -43,7 +44,7 @@ export const usePessoaForm = ({ pessoaId, onSuccess }: UsePessoaFormProps) => {
     async (values: any, resetForm: () => void, navigateBack: () => void) => {
       try {
         setLoading(true);
-        const pessoaData: PessoaResponse = { ...values };
+        const pessoaData: PessoaResponse = { ...values , id: pessoaId};
 
         if (isEditMode && pessoaId) {
           await PessoaService.atualizar(pessoaId, pessoaData);
