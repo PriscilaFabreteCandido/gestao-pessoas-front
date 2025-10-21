@@ -3,7 +3,7 @@ import type { RootState } from "../stores/store";
 import { Route, Routes } from "react-router-dom";
 import { LoginPage } from "../pages/public/login/LoginPage";
 import routes from "./routes";
-import { RootLayout } from "../layouts/PrivateLayout";
+import { RootLayout } from "../layouts/RootLayout";
 
 export default function AppRoutes() {
   const isAuthenticated = useSelector((state: RootState) => state?.auth.isAuthenticated);
