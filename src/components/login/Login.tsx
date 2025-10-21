@@ -58,7 +58,7 @@ export const LoginComponent = () => {
           form={form}
           onFinish={onFinish}
           layout="vertical"
-          className="w-full max-w-md bg-white p-6 md:p-8 rounded-2xl shadow-sm"
+          className="w-full max-w-md bg-white p-6 md:p-8  shadow-sm"
         >
           <Form.Item
             label="Email"
