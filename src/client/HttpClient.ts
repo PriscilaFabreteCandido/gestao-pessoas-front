@@ -27,7 +27,6 @@ class HttpClient {
       (error: AxiosError) => {
         
         if (error.response?.status === 401) {
-          console.log('veio aquiiii')
           localStorage.removeItem("authToken")
           const event = new CustomEvent("eventSession", {
             detail: {
