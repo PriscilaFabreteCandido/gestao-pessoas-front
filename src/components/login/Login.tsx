@@ -48,7 +48,7 @@ export const LoginComponent = () => {
       {/* Formulário */}
       <div className="w-full lg:w-1/2 flex flex-col justify-center items-center">
         <div className="text-center lg:text-left mb-10">
-          <h1 className="text-4xl md:text-5xl font-medium mb-2">Plataforma</h1>
+          <h1 className="text-4xl md:text-5xl font-medium mb-2">Plataforma de</h1>
           <h2 className="text-primary text-5xl md:text-6xl font-bold">
             Gestão de Pessoas
           </h2>
