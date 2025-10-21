@@ -26,7 +26,7 @@ export const LoginComponent = () => {
   }, [error]);
 
   return (
-    <div className="flex flex-col lg:flex-row items-center justify-center min-h-screen px-6 md:px-12 lg:px-20 bg-gray-50">
+    <div className="flex flex-col lg:flex-row items-center justify-center min-h-screen px-6 md:px-12 lg:px-20 ">
      
       <div className="hidden lg:flex w-1/2 justify-center">
         <img
